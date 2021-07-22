@@ -1,0 +1,13 @@
+syntax = "proto3";
+import "definitions/user.proto";
+import "definitions/product.proto";
+
+message Obsession {
+  int32 id = 1;
+  string description = 2;
+}
+
+message ObsessionCreate {
+  User user = 1;
+  Product product = 2;
+}

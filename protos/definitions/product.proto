@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message Product {
+  int32 id = 1;
+}

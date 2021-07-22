@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "definitions/waitlist.proto";
+import "definitions/generics.proto";
+
+package RPC;
+service WaitlistService {
+  rpc create(WaitlistCreate) returns (Waitlist) {}
+  rpc get(Waitlist) returns (Waitlist) {}
+  rpc update(Waitlist) returns (Waitlist) {}
+  rpc delete(Waitlist) returns (Deleted) {}
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "definitions/generics.proto";
+import "definitions/obsession.proto";
+
+package RPC;
+service ObsessionService {
+  rpc create(ObsessionCreate) returns (Obsession) {}
+  rpc get(Obsession) returns (Obsession) {}
+  rpc update(Obsession) returns (Obsession) {}
+  rpc delete(Obsession) returns (Deleted) {}
+}
