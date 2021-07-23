@@ -14,10 +14,10 @@ module RPC
       self.unmarshal_class_method = :decode
       self.service_name = 'RPC.ObsessionService'
 
-      rpc :create, ::ObsessionCreate, ::Obsession
-      rpc :get, ::Obsession, ::Obsession
-      rpc :update, ::Obsession, ::Obsession
-      rpc :delete, ::Obsession, ::Deleted
+      rpc :create, ::RPC::ObsessionCreate, ::RPC::Obsession
+      rpc :get, ::RPC::Obsession, ::RPC::Obsession
+      rpc :update, ::RPC::Obsession, ::RPC::Obsession
+      rpc :delete, ::RPC::Obsession, ::RPC::Deleted
     end
 
     Stub = Service.rpc_stub_class

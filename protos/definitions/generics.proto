@@ -1,4 +1,5 @@
 syntax = "proto3";
+package RPC;
 
 message Deleted {
   bool deleted = 1;

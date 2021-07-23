@@ -5,10 +5,12 @@ require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("definitions/product.proto", :syntax => :proto3) do
-    add_message "Product" do
+    add_message "RPC.Product" do
       optional :id, :int32, 1
     end
   end
 end
 
-Product = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("Product").msgclass
+module RPC
+  Product = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("RPC.Product").msgclass
+end

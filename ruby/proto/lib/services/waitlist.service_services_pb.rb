@@ -14,10 +14,10 @@ module RPC
       self.unmarshal_class_method = :decode
       self.service_name = 'RPC.WaitlistService'
 
-      rpc :create, ::WaitlistCreate, ::Waitlist
-      rpc :get, ::Waitlist, ::Waitlist
-      rpc :update, ::Waitlist, ::Waitlist
-      rpc :delete, ::Waitlist, ::Deleted
+      rpc :create, ::RPC::WaitlistCreate, ::RPC::Waitlist
+      rpc :get, ::RPC::Waitlist, ::RPC::Waitlist
+      rpc :update, ::RPC::Waitlist, ::RPC::Waitlist
+      rpc :delete, ::RPC::Waitlist, ::RPC::Deleted
     end
 
     Stub = Service.rpc_stub_class

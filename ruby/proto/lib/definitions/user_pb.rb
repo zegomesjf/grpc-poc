@@ -5,10 +5,12 @@ require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("definitions/user.proto", :syntax => :proto3) do
-    add_message "User" do
+    add_message "RPC.User" do
       optional :id, :int32, 1
     end
   end
 end
 
-User = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("User").msgclass
+module RPC
+  User = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("RPC.User").msgclass
+end

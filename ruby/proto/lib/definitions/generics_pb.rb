@@ -5,10 +5,12 @@ require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("definitions/generics.proto", :syntax => :proto3) do
-    add_message "Deleted" do
+    add_message "RPC.Deleted" do
       optional :deleted, :bool, 1
     end
   end
 end
 
-Deleted = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("Deleted").msgclass
+module RPC
+  Deleted = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("RPC.Deleted").msgclass
+end

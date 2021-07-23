@@ -7,16 +7,18 @@ require 'definitions/user_pb'
 require 'definitions/product_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("definitions/obsession.proto", :syntax => :proto3) do
-    add_message "Obsession" do
+    add_message "RPC.Obsession" do
       optional :id, :int32, 1
       optional :description, :string, 2
     end
-    add_message "ObsessionCreate" do
-      optional :user, :message, 1, "User"
-      optional :product, :message, 2, "Product"
+    add_message "RPC.ObsessionCreate" do
+      optional :user, :message, 1, "RPC.User"
+      optional :product, :message, 2, "RPC.Product"
     end
   end
 end
 
-Obsession = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("Obsession").msgclass
-ObsessionCreate = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("ObsessionCreate").msgclass
+module RPC
+  Obsession = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("RPC.Obsession").msgclass
+  ObsessionCreate = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("RPC.ObsessionCreate").msgclass
+end

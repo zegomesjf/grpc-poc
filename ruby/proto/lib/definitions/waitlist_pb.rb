@@ -7,16 +7,18 @@ require 'definitions/user_pb'
 require 'definitions/product_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("definitions/waitlist.proto", :syntax => :proto3) do
-    add_message "Waitlist" do
+    add_message "RPC.Waitlist" do
       optional :id, :int32, 1
       optional :description, :string, 2
     end
-    add_message "WaitlistCreate" do
-      optional :user, :message, 1, "User"
-      optional :product, :message, 2, "Product"
+    add_message "RPC.WaitlistCreate" do
+      optional :user, :message, 1, "RPC.User"
+      optional :product, :message, 2, "RPC.Product"
     end
   end
 end
 
-Waitlist = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("Waitlist").msgclass
-WaitlistCreate = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("WaitlistCreate").msgclass
+module RPC
+  Waitlist = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("RPC.Waitlist").msgclass
+  WaitlistCreate = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("RPC.WaitlistCreate").msgclass
+end
